@@ -2,31 +2,27 @@
 //
 // Execute `rustlings hint if3` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
 
-pub fn animal_habitat(animal: &str) -> &'static str {
+#[derive(Debug, PartialEq)]
+enum Locations {
+    Beach = 1,
+    Burrow = 2,
+    Desert = 3,
+    Unknown = 4,
+}
+
+pub fn animal_habitat(animal: &str) -> Locations {
     let identifier = if animal == "crab" {
-        1
+        Locations::Beach
     } else if animal == "gopher" {
-        2.0
+        Locations::Burrow
     } else if animal == "snake" {
-        3
+        Locations::Desert
     } else {
-        "Unknown"
+        Locations::Unknown
     };
 
-    // DO NOT CHANGE THIS STATEMENT BELOW
-    let habitat = if identifier == 1 {
-        "Beach"
-    } else if identifier == 2 {
-        "Burrow"
-    } else if identifier == 3 {
-        "Desert"
-    } else {
-        "Unknown"
-    };
-
-    habitat
+    identifier
 }
 
 // No test changes needed.
@@ -36,21 +32,21 @@ mod tests {
 
     #[test]
     fn gopher_lives_in_burrow() {
-        assert_eq!(animal_habitat("gopher"), "Burrow")
+        assert_eq!(animal_habitat("gopher"), Locations::Burrow)
     }
 
     #[test]
     fn snake_lives_in_desert() {
-        assert_eq!(animal_habitat("snake"), "Desert")
+        assert_eq!(animal_habitat("snake"), Locations::Desert)
     }
 
     #[test]
     fn crab_lives_on_beach() {
-        assert_eq!(animal_habitat("crab"), "Beach")
+        assert_eq!(animal_habitat("crab"), Locations::Beach)
     }
 
     #[test]
     fn unknown_animal() {
-        assert_eq!(animal_habitat("dinosaur"), "Unknown")
+        assert_eq!(animal_habitat("dinosaur"), Locations::Unknown)
     }
 }
