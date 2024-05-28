@@ -9,7 +9,6 @@
 // Execute `rustlings hint iterators3` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum DivisionError {
@@ -37,8 +36,8 @@ pub fn divide(a: i32, b: i32) -> Result<i32, DivisionError> {
         Err(
             DivisionError::NotDivisible(
                 NotDivisibleError {
-                    dividend: remainder,
-                    divisor: quotient 
+                    dividend: a,
+                    divisor: b 
                 }
             )
         )
