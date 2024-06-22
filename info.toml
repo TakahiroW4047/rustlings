@@ -665,6 +665,14 @@ with `map_err()`.
 Read more about `map_err()` in the `std::result` documentation:
 https://doc.rust-lang.org/std/result/enum.Result.html#method.map_err"""
 
+[[exercises]]
+name = "errors7"
+path = "exercises/error_handling/errors7.rs"
+mode = "test"
+hint = """
+This exercise is to replicate errors6.rs file from memory.
+"""
+
 # Generics
 
 [[exercises]]
