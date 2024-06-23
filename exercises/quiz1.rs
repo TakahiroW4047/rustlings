@@ -13,10 +13,18 @@
 //
 // No hints this time ;)
 
-// I AM NOT DONE
-
 // Put your function here!
-// fn calculate_price_of_apples {
+fn calculate_price_of_apples(num: u32) -> u32{
+    let count_greater_than_40: bool = num > 40;
+    let cost_per_apple: u32;
+
+    match count_greater_than_40 {
+        true => cost_per_apple = 1,
+        false => cost_per_apple = 2,
+    }
+
+    num * cost_per_apple
+}
 
 // Don't modify this function!
 #[test]

@@ -7,6 +7,10 @@
 // Execute `rustlings hint from_into` or use the `hint` watch subcommand for a
 // hint.
 
+
+use std::convert::From;
+
+
 #[derive(Debug)]
 struct Person {
     name: String,
@@ -44,6 +48,36 @@ impl Default for Person {
 
 impl From<&str> for Person {
     fn from(s: &str) -> Person {
+        let string_values: Vec<&str> = s.split(',')
+            .map(|s| s.trim())
+            .collect();
+
+        let name: String = string_values[0].into();
+        if name.is_empty() { 
+            return Person::default() 
+        }
+        
+        if string_values.len() < 2 {
+            return Person::default()
+        }
+        
+        if string_values[1].is_empty() {
+            return Person::default()
+        }
+
+        let age_result: Result<usize, _> = string_values[1].parse();
+        let age = match age_result {
+            Ok(age) => {
+                println!("{age}");
+                age
+            },
+            Err(_) => return Person::default(),
+        };
+
+        Person {
+            name: name,
+            age: age,
+        }
     }
 }
 
